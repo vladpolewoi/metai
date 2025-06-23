@@ -58,11 +58,11 @@ export const SignInView = () => {
     );
   };
 
-  const onSocial = async (provider: 'github' | 'google') => {
+  const onSocial = (provider: 'github' | 'google') => {
     setError(null);
     setPending(true);
 
-    await authClient.signIn.social(
+    authClient.signIn.social(
       { provider, callbackURL: '/' },
       {
         onSuccess: () => {
@@ -157,7 +157,7 @@ export const SignInView = () => {
               </div>
             </form>
           </Form>
-          <div className="bg-radial from-sky-500 to-sky-900 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
+          <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center">
             <img src="/logo.svg" alt="Image" className="h-[92px] w-[92px]" />
             <p className="text-2xl font-semibold text-white">Met.AI</p>
           </div>
